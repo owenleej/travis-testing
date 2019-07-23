@@ -1,0 +1,12 @@
+{
+    "video":false,
+    "visualMetrics":false,
+    "visualElements":false,
+    "iterations":1,
+    "percentiles":[15,85],
+    "pageCompleteCheck":"return window.done",
+    "chrome":{
+        "timeline":true,
+        "cdp":{"performance":true}
+    }
+}

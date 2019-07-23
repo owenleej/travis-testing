@@ -8,13 +8,13 @@ node_js:
 
 install:
 - npm i -g npm
+- npm i -g browsertime 
 
 cache:
   directories:
   - node_modules
 
 addons:
-  firefox: latest
   apt:
     sources:
     - google-chrome
@@ -29,7 +29,6 @@ before_script:
 
 script:
 - npm install
-- npm run sandbox:install
-- npm run sandbox:build
-- npm run build  
-- rollup -c --environment BUILD:production && rollup -c --environment MINIFY,BUILD:production && bundlesize
+- npm run build
+- python -m SimpleHTTPServer 8000 >/dev/null 2>&1 &
+- browsertime logTest.js

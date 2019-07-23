@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self';
+      script-src 'self' 'unsafe-inline';
+      style-src 'self' 'unsafe-inline';
+      img-src 'self' http://edgegateway.azurewebsites.net/dests https://edgegateway.azurewebsites.net/dests;
+      connect-src 'self' https://edgegateway.azurewebsites.net http://ex-edge.stable-stage.aam-npe.adobeinternal.net"/>
+    <title>Mock website hosting Alloy</title>
+    <script>
+      !function(n,o){o.forEach(function(o){n[o]||((n.__alloyNS=n.__alloyNS||
+      []).push(o),n[o]=function(){var u=arguments;return new Promise(
+      function(i,l){n[o].q.push([i,l,u])})},n[o].q=[])})}
+      (window,["alloy"]);
+    </script>
+    <script src="alloy.baseline.min.js" async></script>
+
+    <script>
+      alloy("configure", {
+        propertyID: 9999999,
+        log: false,
+        prehidingSelector: "#container"
+      });
+
+      alloy("event", {
+        type: "viewStart",
+        data: {
+          "xdm:URL": ["http://localhost:3000/"],
+          "xdm:name": ["home"]
+        }
+      }).then(()=>{setTimeout(()=>{window.done = true;},0)});
+
+    </script>
+  </head>
+  <body>
+      <section>
+      <div>
+      <div class="mbox"></div>
+      <div class="container">
+        <h2>Some awesome default content</h2>
+        <br/>
+      </div>
+    </div>
+  </section>
+  </body>
+</html>

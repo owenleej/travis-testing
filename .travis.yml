@@ -28,7 +28,7 @@ before_script:
 - sleep 3
 - pwd
 - fluxbox >/dev/null 2>&1 &
-- http-server &
+- http-server >/dev/null 2>&1 &
 
 script:
 - browsertime logTest.js

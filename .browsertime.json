@@ -2,7 +2,7 @@
     "video":false,
     "visualMetrics":false,
     "visualElements":false,
-    "iterations":1,
+    "iterations":10,
     "percentiles":[15,85],
     "pageCompleteCheck":"return window.done",
     "chrome":{

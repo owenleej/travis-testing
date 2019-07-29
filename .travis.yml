@@ -9,6 +9,7 @@ node_js:
 install:
 - npm i -g npm
 - npm i -g browsertime 
+- npm i -g http-server 
 
 cache:
   directories:
@@ -26,7 +27,7 @@ before_script:
 - sh -e /etc/init.d/xvfb start
 - sleep 3
 - fluxbox >/dev/null 2>&1 &
+- http-server >/dev/null 2>&1 &
 
 script:
-- python -m SimpleHTTPServer 8000 >/dev/null 2>&1 &
 - browsertime logTest.js
